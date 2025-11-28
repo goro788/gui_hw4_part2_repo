@@ -1,0 +1,249 @@
+/* 
+Name:Kevin Tran
+Date:11/26/2025
+File: style.css
+
+*/
+
+:root {
+  --bg: #153351;
+  --card: #fff;
+  --ink: #1f2937;
+  --accent: #2563eb;
+  --muted: #6b7280;
+  --gridA: #f8fafc;
+  --gridB: #eef2ff;
+  --headBg: #e2e8f0;
+  --error: #b91c1c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 24px;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-weight: 800;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.field-error {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: var(--error);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Red border when invalid */
+input.input-error {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.15);
+}
+fieldset {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px 0 0;
+}
+
+legend {
+  padding: 0 8px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;   
+  row-gap: 32px;
+  margin-top: 8px;
+}
+
+label {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+input[type="number"] {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.actions {
+  margin-top: 34px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+
+#clear {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.errors {
+  margin-top: 10px;
+  color: var(--error);
+  font-weight: 600;
+  min-height: 1.25em;
+}
+
+.table-wrap {
+  margin-top: 18px;
+}
+
+.table-container {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  max-height: 70vh;      /* limit height so vertical scroll appears */
+  max-width: 100%;       /* keep it inside the white card */
+  overflow-y: auto;      /* vertical scrollbar when needed */
+  overflow-x: auto;      /* horizontal scrollbar when needed */
+  background: #fff;
+  position: relative;
+}
+
+
+table {
+  border-collapse: collapse;
+  /* remove width: 100%; and min-width: 100%; */
+  font-size: 0.75rem;
+}
+
+table th,
+table td {
+  padding: 3px 6px;
+  border: 1px solid #e5e7eb;
+  text-align: right;
+  white-space: nowrap; /* keeps numbers from wrapping */
+}
+
+
+tbody tr:nth-child(odd) td {
+  background: var(--gridA);
+}
+
+tbody tr:nth-child(even) td {
+  background: var(--gridB);
+}
+
+thead th,
+tbody th {
+  position: sticky;
+  background-clip: padding-box;
+}
+
+thead th {
+  top: 0;
+  background: var(--headBg);
+  z-index: 5;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+tbody th {
+  left: 0;
+  z-index: 4;
+  background: var(--headBg);
+  text-align: right;
+  font-weight: 700;
+  box-shadow: 2px 0 0 rgba(0, 0, 0, 0.05);
+}
+
+thead th.corner {
+  top: 0;
+  left: 0;
+  z-index: 6;
+}
+
+/* jQuery UI slider spacing */
+.slider {
+  margin-top: 8px;
+}
+
+/* Tabs layout tweaks */
+#tabs {
+  margin-top: 16px;
+}
+
+#tabs-nav {
+  margin-bottom: 12px;
+}
+
+/* Checkbox inside tab header (for multi-delete) */
+#tabs-nav .tab-select {
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* Close icon in tab header */
+#tabs-nav .ui-icon-close {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Section for the multi-delete button */
+.tab-actions {
+  margin-top: 16px;
+}
+
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+

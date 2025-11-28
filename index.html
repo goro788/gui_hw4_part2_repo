@@ -1,0 +1,83 @@
+<!--
+Name: Kevin Tran
+Date: 11/26/2025
+File: index.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multiplication Table</title>
+  <link rel="stylesheet"
+        href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Multiplication Table</h1>
+
+    <div id="tabs">
+      <ul id="tabs-nav">
+        <li><a href="#tab-input">Input</a></li>
+      </ul>
+      <div id="tab-input">
+        <form id="table-form" novalidate>
+          <fieldset>
+            <legend>Enter axis ranges (−50 to 50)</legend>
+            <div class="grid">
+              <div class="field">
+                <label for="hStart">Horizontal row start</label>
+                <input id="hStart" name="hStart" type="number" step="1" min="-50" max="50"
+                       required placeholder="e.g., 1">
+                <!-- jQuery UI slider for hStart -->
+                <div id="hStart-slider" class="slider"></div>
+              </div>
+              <div class="field">
+                <label for="hEnd">Horizontal row end</label>
+                <input id="hEnd" name="hEnd" type="number" step="1" min="-50" max="50"
+                       required placeholder="e.g., 5">
+                <!-- jQuery UI slider for hEnd -->
+                <div id="hEnd-slider" class="slider"></div>
+              </div>
+
+              <div class="field">
+                <label for="vStart">Vertical row start</label>
+                <input id="vStart" name="vStart" type="number" step="1" min="-50" max="50"
+                       required placeholder="e.g., 5">
+                <!-- jQuery UI slider for vStart -->
+                <div id="vStart-slider" class="slider"></div>
+              </div>
+
+              <div class="field">
+                <label for="vEnd">Vertical row end</label>
+                <input id="vEnd" name="vEnd" type="number" step="1" min="-50" max="50"
+                       required placeholder="e.g., 8">
+                <!-- jQuery UI slider for vEnd -->
+                <div id="vEnd-slider" class="slider"></div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button id="generate" type="submit">Generate Table</button>
+              <button id="clear" type="button">Clear</button>
+            </div>
+          </fieldset>
+          <div id="errors" class="errors" role="alert" aria-live="polite"></div>
+        </form>
+        <!-- LIVE PREVIEW TABLE (updates dynamically with sliders / typing) -->
+        <section class="table-wrap">
+          <div id="tableContainer" class="table-container" aria-live="polite"></div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.20.0/dist/jquery.validate.min.js"></script>
+  <script src="./scripts/script.js"></script>
+</body>
+</html>
